@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reloj Checador</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:"
+    />
+
+    <link href="./assets/main.css" type="text/css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="clearfix">
+      <div class="row g-0 align-items-start">
+        <div class="col px-2 sticky-top">
+          <img src="https://intranet.saymagroup.com/img/sayma.png" style="margin-top: 10px;display: block;margin-left: auto;margin-right: auto;">
+          <p style="margin-top: 10px;font-size: 20px;text-align: center;">Hola, <b><span id="pc-user"></span></b>.<br>Estás usando la computadora con nombre: <span id="pc-name"></span></p>
+          <button class="boton-azul-animado" style="display: block;margin-left: auto; margin-right: auto;">
+            <svg class="icono" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 6v6l4 2m6-2a10 10 0 11-20 0 10 10 0 0120 0z" />
+            </svg>
+            Checar
+          </button>
+          <p style="margin-top: 30px;font-size: 20px;text-align: center;">Tu IP local es: <span id="ip-local"></span></p>
+        </div>
+        <div class="col px-2 py-2" style=" background-color: #1D2939;color:white;min-height: 100vh;">
+          <p style="margin-top: 10px;font-size: 20px;text-align: center;">LISTADO DE REGISTROS</p>
+          <div id="chequeos"></div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+<script type="module" src="./src/renderer.js"></script>
