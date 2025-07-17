@@ -23,8 +23,10 @@ if (process.contextIsolated) {
 const { contextBridge, ipcRenderer } = require('electron');
 // Exponer ipcRenderer de manera segura al frontend
 contextBridge.exposeInMainWorld('electron', {
-    onNombrePC: (callback) => ipcRenderer.on('nombrePC', callback),
-    onIplocal: (callback) => ipcRenderer.on('iplocal', callback),
-    onUsername: (callback) => ipcRenderer.on('username', callback),
-    invoke: (channel, data) => ipcRenderer.invoke(channel, data)
+  onNombrePC: (callback) => ipcRenderer.on('nombrePC', callback),
+  onIplocal: (callback) => ipcRenderer.on('iplocal', callback),
+  onUsername: (callback) => ipcRenderer.on('username', callback),
+  invoke: (channel, data) => ipcRenderer.invoke(channel, data),
+  onUpdateReady: (callback) => ipcRenderer.on('update-ready', callback),
+  instalarActualizacion: () => ipcRenderer.send('instalar-actualizacion')
 });

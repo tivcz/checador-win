@@ -2,7 +2,19 @@ import Swal from 'sweetalert2';
 var pcname;
 var pcuser;
 var iplocal;
+
 if (window.electron) {
+  window.electron.onUpdateReady(() => {
+    alert('🎉 ¡Hay una nueva versión disponible!');
+
+    const btn = document.createElement('button');
+    btn.textContent = '🔁 Reiniciar y actualizar';
+    btn.style = 'position: fixed; bottom: 20px; right: 20px; z-index: 9999; padding: 10px 15px;';
+    btn.onclick = () => {
+      window.electron.instalarActualizacion();
+    };
+    document.body.appendChild(btn);
+  });
   window.electron.onIplocal((event, variableRecibida) => {
     document.getElementById('ip-local').innerText = variableRecibida;
     iplocal = variableRecibida;

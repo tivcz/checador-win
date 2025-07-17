@@ -1,10 +1,10 @@
 {
   "name": "relojchecador",
-  "version": "1.0.0",
-  "description": "A minimal Electron application with JavaScript",
+  "version": "1.1.0",
+  "description": "Coporativo SAYMA",
   "main": "./out/main/index.js",
-  "author": "example.com",
-  "homepage": "https://electron-vite.org",
+  "author": "TI SAYMA",
+  "homepage": "https://saymamexico.com.mx",
   "scripts": {
     "format": "prettier --write .",
     "lint": "eslint --cache .",
@@ -21,7 +21,8 @@
     "@electron-toolkit/preload": "^3.0.1",
     "@electron-toolkit/utils": "^4.0.0",
     "axios": "^1.9.0",
-    "sweetalert2": "^11.19.1"
+    "electron-updater": "^6.6.2",
+    "sweetalert2": "^11.6.13"
   },
   "devDependencies": {
     "@electron-toolkit/eslint-config": "^2.0.0",
@@ -35,6 +36,12 @@
   },
   "build": {
     "appId": "com.sayma.checador",
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "https://intranet.saymagroup.com/actualizaciones/"
+      }
+    ],
     "productName": "Checador SAYMA",
     "icon": "build/icon"
   }
